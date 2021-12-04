@@ -39,7 +39,8 @@ h1, h2, h3, blockquote {
   header {
     background: var(--dark-bg);
     grid-column: 2 / span 5;
-    font-size: 2.5rem;
+    /* font-size: 2.5rem; */
+    font-size: 16pw;
     padding: 2rem;
     margin-bottom: var(--spacing);
   }
@@ -63,6 +64,7 @@ h1, h2, h3, blockquote {
   blockquote p {
     color: black;
     background-color: white;
+    opacity: 0.75;
     font-size: 4rem;
     display: inline;
     line-height: 1;
