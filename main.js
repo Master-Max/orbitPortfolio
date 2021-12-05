@@ -44,10 +44,32 @@ scene.add( mainLight);
 
 const controls = new OrbitControls(camera, renderer.domElement);
 
+// BACKGROUND STARS
+
+function addStar() {
+  const geometry = new THREE.SphereGeometry(0.25, 24, 24);
+  const material = new THREE.MeshStandardMaterial( { color: 0xffffff } );
+  const star = new THREE.Mesh( geometry, material );
+
+  const [x,y,z] = Array(3).fill().map( () => THREE.MathUtils.randFloatSpread( 500 ) );
+
+  star.position.set(x, y, z);
+  scene.add(star)
+}
+
+// const starTotal = 300;
+// const foobar = Array.from({length: starTotal}, () => Math.floor(Math.random() * starTotal));
+// const barfoo = Array.from({length: starTotal}, () => Math.floor(Math.random() * starTotal));
+
+Array(300).fill().forEach(addStar)
+
+
+// SOLAR SYSTEM STUFF
+
 function createSun() {
   const material = new THREE.MeshPhongMaterial({
-    color:'yellow',
-    emissive: '#F8CE3B',
+    color:'#005500',
+    emissive: '#ffdd2f', //#F8CE3B
   });
   material.color.convertSRGBToLinear();
   const geometry = new THREE.SphereBufferGeometry(1, 12, 12);
@@ -63,8 +85,8 @@ function createSun() {
 
 function createEarth() {
   const material = new THREE.MeshPhongMaterial({
-    color: 'teal',
-    emissive: '#112244',
+    color: '#2050FF',
+    emissive: '#3f2234',
     flatShading: true
   });
   material.color.convertSRGBToLinear();
@@ -78,7 +100,7 @@ function createEarth() {
 
 function createMoon() {
   const material = new THREE.MeshPhongMaterial({
-    emissive: '#191A0F',
+    emissive: '#191A5F',
     flatShading: true
   });
   material.color.convertSRGBToLinear();
@@ -107,8 +129,8 @@ function createMars() {
 
 function createSaturn() {
   const materialS = new THREE.MeshPhongMaterial({
-    color: '#3F940B',
-    emissive: '#899C3D',
+    color: '#5F940B',
+    emissive: '#895C3D',
     flatShading: true
   });
   const geometryS = new THREE.SphereBufferGeometry(1, 12, 12);
@@ -136,8 +158,8 @@ function createRing() {
 
 function createJupiter() {
   const material = new THREE.MeshPhongMaterial({
-    color: '#E97E09',
-    emissive: '#B79700',
+    color: '#F92E09',
+    emissive: '#F71700',
     flatShading: true
   });
   const geometry = new THREE.SphereBufferGeometry(1, 12, 12);
@@ -343,3 +365,23 @@ function animate(){
 }
 
 animate()
+
+
+// Just gonna throw this code here... it should work
+// Pulled from my boxProfile redesign site, this should make a
+// multicolored shadow that moves with the mouse
+// const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+// const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+
+// function setTextShadow(e){
+//   var text = document.getElementById('name_text');
+//   console.log(`attempting text shadow: ${e.clientX}`);
+//   let x = 0.1 * (e.clientX - (vw/2));
+//   let y = 0.05 * (e.clientY - (vh/2));
+
+//   // if(x > (vh/2)){
+//   //
+//   // }
+
+//   text.style.textShadow = `${x}px ${y}px rgba(200,0,50,0.5), ${-1.5 * x}px ${-1.5 * y}px rgba(0,200,200,0.5), ${-1 * x}px ${1.5 * y}px rgba(100,200,50,0.5), ${1.5 * x}px ${-1 * y}px rgba(250,200,0,0.5)`;
+// }

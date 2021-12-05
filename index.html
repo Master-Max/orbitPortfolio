@@ -10,14 +10,37 @@
     <canvas id="bg"></canvas>
     
 
-    <main>
+    <main onmousemove="setTextShadow(event)">
+      
+      <!-- <script type="module" src="/textshadow.js"></script> -->
+      <header >
+        <h2 class="blinking_periods">
+          <span>hello friend</span>
+          <span class="loader__dot">.</span>
+          <span class="loader__dot">.</span>
+          <span class="loader__dot">.</span>
+        </h2>
+        <h2>my name is</h2>
+        <h1 id="text" class="mouse-shadow">MAX</h1>
+        <script>
+          const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
+          const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
+          function setTextShadow(e){
+            console.log(`attempting text shadow: ${e.clientX}`);
+            var text = document.getElementById('text');
+            // let x = 0.025 * (e.clientX - (vw/2));
+            // let y = 0.025 * (e.clientY - (vh/2));
 
-      <header>
-        <h1 class="blinking_periods">hello freind</h1>
-        <h2>My name is</h2>
-        <h2 class="rainbow_shadow">Max.</h2>
+            var rect = text.getBoundingClientRect();
+            // console.log(rect);
+
+            let x = 0.025 * (e.clientX - rect.x);
+            let y = 0.025 * (e.clientY - rect.y);
+
+            text.style.textShadow = `${x}px ${y}px rgba(200,0,50,0.5), ${-1.5 * x}px ${-1.5 * y}px rgba(0,200,200,0.5), ${-1 * x}px ${1.5 * y}px rgba(100,200,50,0.5), ${1.5 * x}px ${-1 * y}px rgba(250,200,0,0.5)`;
+          }
+        </script>
         <p>Welcome to my website!</p>
-        <p>🚀</p>
       </header>
 
 
@@ -26,17 +49,17 @@
       </blockquote>
 
       <section>
-        <h2>📜 Manifesto</h2>
+        <h2>What is a Website?</h2>
         <p>
-          The Modern web began in   
+          Ask different people and you will get different answers. A bunch of ones and zeros, a text document that a browser can interpret, "What do you mean? It's just a website, like a google or the facebook or whatever."
         </p>
 
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          The truth is a website can be whatever one can imagine, with enough lines of code you can make almost anything on the modern web. With the flexibility modern browsers offer, full scale applications can be developed with relative ease. These rich web experiences are unlike the simple blogs and catalogues that I grew up with. Applications like Skype, MSWord, and Photoshop can now be accessed through the web instantly, no installation required.
         </p>
 
         <p>
-          Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+          These tools are available to everyone, but you still need someone with the know how and dedication to implement them. That's where I come in.
         </p>
 
       </section>
@@ -61,14 +84,14 @@
       </blockquote>
 
       <section class="left">
-        <h2>🌮 Work History</h2>
+        <h2>Work History</h2>
 
         <h3>Non Technical Work</h3>
         <p>
-          I, as I asume every young, aspiring, Renesaunce Individual of their age, have had many one off jobs here and there throughout my life.
+          I, as I asume every young, aspiring, Renesaunce Individual of their age, have had many one off jobs throughout my life.
         </p>
         <p>
-          Voulnteer work, band and choir practices, the kitchen of a sea food restuaraunt, mowing lawns, cleaning boats, assembling somewhat compelicated Audio Visual displays, et cetera.
+          Voulnteer work, band and choir practices, the kitchen of a sea food restuaraunt, mowing lawns, cleaning boats, Audio Video setups, et cetera.
         </p>
         <p>
           Truly, these were the first places I have any work history, they have shaped much of my work ethic and given me experience that has shaped me into who I am today.
@@ -94,19 +117,19 @@
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
-        <h3>Taco Bell</h3>
+        <h3>The Flatiron School</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
 
-        <h3>Taco Bell</h3>
+        <h3>TechConnect</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
 
 
-        <h3>Taco Bell</h3>
+        <h3>Assurant</h3>
         <p>
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
         </p>
@@ -126,6 +149,7 @@
 
 
 
-    <script type="module" src="/main.js"></script>
   </body>
+  
+  <script type="module" src="/main.js"></script>
 </html>
