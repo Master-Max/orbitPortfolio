@@ -8,10 +8,10 @@
   </head>
   <body>
     <canvas id="bg"></canvas>
-    
+
 
     <main onmousemove="setTextShadow(event)">
-      
+
       <!-- <script type="module" src="/textshadow.js"></script> -->
       <header >
         <h2 class="blinking_periods">
@@ -136,20 +136,37 @@
 
       </section>
 
-      <blockquote><p>thank you</p></blockquote>
-      <blockquote><p>for your</p></blockquote>
-      <blockquote><p>time</p></blockquote>
+      <blockquote><p class="bqred">thank you</p></blockquote>
+      <blockquote><p class="bqgreen">for your</p></blockquote>
+      <blockquote><p class="bqblue">time!!!</p></blockquote>
+
+      <p>test</p>
 
       <br>
       <br>
 
-      <div></div>
-
+      <p>test</p>
+      <div id="canvas-div">
+        <canvas id="game-canvas" width="700" height="700"></canvas>
+        <div id="controls">
+          <button id="start-btn" name="start">Start</button>
+          <button id="pause-btn" name="pause">Pause</button>
+          <button id="stop-btn" name="stop">Stop</button>
+        </div>
+      </div>
     </main>
 
 
 
   </body>
-  
+
   <script type="module" src="/main.js"></script>
+
+  <script type="text/javascript" src="src/gobs.js"></script>
+  <script type="text/javascript" src="src/models/cannonball.js"></script>
+  <script type="text/javascript" src="src/models/player.js"></script>
+  <script type="text/javascript" src="src/models/asteroid.js"></script>
+  <script type="text/javascript" src="src/canvas.js"></script>
+  <script type="text/javascript" src="src/nobs.js"></script>
+
 </html>
