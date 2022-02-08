@@ -56,6 +56,9 @@ I do really need to make a restart button at some point.
 Also I may want to look into local highscores for now before moving towards
 the ultimate goal of a hosted api for handeling that feature.
 
+ALSO an automatic refresh of the entire site when you move the window around
+could be a good idea.
+
 *****************************************/
 const collisionQueue = [];
 function removeFromCollisionQueue(obj){
@@ -94,6 +97,53 @@ let nextSpawnNumber = 6;
 
 let currentScene = 1;
 
+/****************************************
+* Highscore Stuff
+*****************************************/
+
+// let localScores = undefined;
+
+let tmpScores = window.localStorage.getItem('highscores');
+console.log(tmpScores + '\ntypeof: ' + typeof(tmpScores));
+
+let ttd = [1000, 2000, 3000, 5000, 10000];//Temp Test Data
+
+if(tmpScores == null){
+  window.localStorage.setItem('highscores', JSON.stringify(ttd));
+}
+
+let ttsd = window.localStorage.getItem('highscores')
+let tttsd = JSON.parse(ttsd);
+
+// Sort TTTSD
+
+tttsd.sort(function(a,b){return b-a});
+
+setLeaderboard(tttsd);
+
+console.log('TTSD: ' + ttsd);
+console.log('Typeof ttsd: ' + typeof(ttsd) + '\nTypeof tttsd: ' + typeof(tttsd));
+console.log(ttsd[0] + '\n tttsd: ' + tttsd[0]);
+
+if(tmpScores == null){console.log('YUP its null')}
+else{
+
+}
+
+constHighscores = [];
+
+function setLeaderboard(arr){
+  let LI1 = document.getElementById('leaderboard1');
+  LI1.innerHTML = arr[0];
+  let LI2 = document.getElementById('leaderboard2');
+  LI2.innerHTML = arr[1];
+  let LI3 = document.getElementById('leaderboard3');
+  LI3.innerHTML = arr[2];
+  let LI4 = document.getElementById('leaderboard4');
+  LI4.innerHTML = arr[3];
+  let LI5 = document.getElementById('leaderboard5');
+  LI5.innerHTML = arr[4];
+}
 
 // Test Stuff
 

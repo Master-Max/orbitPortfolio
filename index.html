@@ -26,7 +26,7 @@
           const vw = Math.max(document.documentElement.clientWidth, window.innerWidth || 0);
           const vh = Math.max(document.documentElement.clientHeight, window.innerHeight || 0);
           function setTextShadow(e){
-            console.log(`attempting text shadow: ${e.clientX}`);
+            // console.log(`attempting text shadow: ${e.clientX}`);
             var text = document.getElementById('text');
             // let x = 0.025 * (e.clientX - (vw/2));
             // let y = 0.025 * (e.clientY - (vh/2));
@@ -154,6 +154,14 @@
           <button id="stop-btn" name="stop">Stop</button>
         </div>
       </div>
+      <ul id="leaderboard">
+        <li>Player | Score</li>
+        <ol id="leaderboard1"></ol>
+        <ol id="leaderboard2"></ol>
+        <ol id="leaderboard3"></ol>
+        <ol id="leaderboard4"></ol>
+        <ol id="leaderboard5"></ol>  
+      </ul>
     </main>
 
 

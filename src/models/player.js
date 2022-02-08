@@ -35,7 +35,79 @@ class Player {
     this.nextExtraLifeGoal = 10000;
     this.isAlive = true;
     this.slowdown = true;
+
+    this.ranGotNewHSOnce = false;
   }
+
+  gotNewHighscore(){
+    let bumpVal = null;
+    for(let i = 0; i<tttsd.length; i++){
+      if(this.score > tttsd[i]){
+        let bumpVal = tttsd[i];
+        tttsd[i] = this.score;
+        break;
+      }
+    }
+    if(bumpVal != null){
+      for(let i = 0; i<tttsd.length; i++){
+        if(tttsd[i] == this.score){
+          break;
+        }else if(tttsd[i+1] == this.score){
+          tttsd[i] = bumpVal;
+          break;
+        }else{
+          tttsd[i] = tttsd[i+1];
+        }
+      }
+    }
+    console.log(tttsd);
+    console.log('Highscore Tally Done')
+    window.localStorage.setItem('highscores', JSON.stringify(tttsd));
+    this.ranGotNewHSOnce = true;
+    return true;
+  }
+
+  addToArrConditional(num, arr){
+
+    console.log('========');
+    console.log('addToArrConditional: ');
+    console.log('Original Array| ' + arr);
+    console.log('Original Num| ' + num);
+
+    let abc = undefined;
+    for(let i = arr.length -1; i>=0; i--){
+      console.log(arr[i]);
+      if(num > arr[i]){
+        abc = i;
+      }
+    }
+
+    if(abc != undefined){
+      arr.splice(abc, 0, num);
+      arr.length = arr.length -1;
+      console.log('Modified Array|' + arr);
+      return true;
+    }else{
+      console.log('No Mods Applied' + arr);
+      return false;
+    }
+  }
+
+  gotNewHighscore2(){
+    let tmpScore = this.score;
+    console.log(tmpScore);
+    if(this.addToArrConditional(tmpScore, tttsd)){
+      console.log('NEW HIGH SCORE!!!');
+      let tmpAlertStr = "SCORE || " + tmpScore + 
+      "\nEnter Name . . .";
+      // let PlayerName = prompt(tmpAlertStr);
+      window.localStorage.setItem('highscores', JSON.stringify(tttsd));
+      console.log(tttsd);
+    }else{
+      console.log('TRY AGAIN???');
+    }
+  }
+
 
   takeDamage(){
     // makeTmpAnim();
@@ -48,7 +120,12 @@ class Player {
       this.lVelocity = 0;
       this.isAlive = false;
       this.slowdown = false;
-
+      if(this.score > 0 && !this.ranGotNewHSOnce){
+        this.ranGotNewHSOnce = true;
+        if(this.gotNewHighscore2()){
+          console.log('YAY!');
+        }
+      }
     }else{
       this.respawnTimer = 3000;
       this.respawning = true;

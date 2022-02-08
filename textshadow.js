@@ -5,7 +5,7 @@ var box = document.querySelector('shadowbox')
 
 function setTextShadow(e){
   var text = document.getElementById('text');
-  console.log(`attempting text shadow: ${e.clientX}`);
+  // console.log(`attempting text shadow: ${e.clientX}`);
   let x = 0.1 * (e.clientX - (vw/2));
   let y = 0.05 * (e.clientY - (vh/2));
 
