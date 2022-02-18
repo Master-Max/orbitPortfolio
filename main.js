@@ -385,3 +385,8 @@ animate()
 
 //   text.style.textShadow = `${x}px ${y}px rgba(200,0,50,0.5), ${-1.5 * x}px ${-1.5 * y}px rgba(0,200,200,0.5), ${-1 * x}px ${1.5 * y}px rgba(100,200,50,0.5), ${1.5 * x}px ${-1 * y}px rgba(250,200,0,0.5)`;
 // }
+
+
+// SOOOO when I run vite it doesn't seem to include any code other that whats in here???
+// SOOO im just gonna put all my other code here and see if that works
+

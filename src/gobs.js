@@ -78,8 +78,9 @@ function removeFromAsteroidQueue(obj){
 *Dev Buttons
 *****************************************/
 const startButton = document.getElementById('start-btn');
+console.log(startButton);
 const stopButton = document.getElementById('stop-btn');
-
+console.log(stopButton);
 
 /****************************************
 *Player Stuff
@@ -129,8 +130,6 @@ if(tmpScores == null){console.log('YUP its null')}
 else{
 
 }
-
-constHighscores = [];
 
 function setLeaderboard(arr){
   let LI1 = document.getElementById('leaderboard1');
