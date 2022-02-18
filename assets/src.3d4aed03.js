@@ -1,4 +1,0 @@
-const r=document.getElementById("start-btn");console.log(r);const i=document.getElementById("stop-btn");console.log(i);let t=window.localStorage.getItem("highscores");console.log(t+`
-typeof: `+typeof t);let m=[1e3,2e3,3e3,5e3,1e4];t==null&&window.localStorage.setItem("highscores",JSON.stringify(m));let o=window.localStorage.getItem("highscores"),n=JSON.parse(o);n.sort(function(e,l){return l-e});a(n);console.log("TTSD: "+o);console.log("Typeof ttsd: "+typeof o+`
-Typeof tttsd: `+typeof n);console.log(o[0]+`
- tttsd: `+n[0]);t==null&&console.log("YUP its null");function a(e){let l=document.getElementById("leaderboard1");l.innerHTML=e[0];let d=document.getElementById("leaderboard2");d.innerHTML=e[1];let s=document.getElementById("leaderboard3");s.innerHTML=e[2];let c=document.getElementById("leaderboard4");c.innerHTML=e[3];let g=document.getElementById("leaderboard5");g.innerHTML=e[4]}
